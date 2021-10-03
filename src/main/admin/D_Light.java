@@ -1,8 +1,10 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.*;
@@ -11,10 +13,13 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class D_Light extends JFrame implements ActionListener{
+	private int count = 0;
+	private JLabel sumLabel = new JLabel();
+	
 	private JPanel panel;
 	private JComboBox<String> comboBox;
 	private JButton searchButton;
-	private JButton searchAllButton;
+	private JButton showAllButton;
 	private JButton deleteButton;
 	private JButton returnButton;
 	private JButton exitButton;
@@ -43,22 +48,39 @@ public class D_Light extends JFrame implements ActionListener{
 				int index = comboBox.getSelectedIndex();
 				if(index == 0) {
 					D_Light.this.setVisible(false);
-					new E_IDLSearch();
+					new E_IDLSearch(null,0);
 					
 				}
 				else if(index == 1) {
 					D_Light.this.setVisible(false);
-					new E_TimeLSearch();
+					new E_TimeLSearch(null,0);
 				}
 				else {
 					D_Light.this.setVisible(false);
-					new E_LightLSearch();
+					new E_LightLSearch(null,0);
 				}
 			}
 		});
 		panel.add(searchButton);
 		
 		deleteButton = new JButton("Delete");
+		deleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							if(table_1.getSelectedRow()==-1) {
+								JOptionPane.showMessageDialog(getContentPane(), "Please click a data in table to choose the record you want to delete. ", "warning", JOptionPane.WARNING_MESSAGE);
+							} else {
+								new Q_DeleteTheLightdata(table_1, model);
+							}
+						} catch (SQLException e1) {
+					         e1.printStackTrace();
+						}
+					}
+				});
+			}
+		});
 		panel.add(deleteButton);
 		
 		returnButton = new JButton("RETURN");
@@ -87,24 +109,46 @@ public class D_Light extends JFrame implements ActionListener{
 		try {                                                                              
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT l_deviceId, l_time, l_light FROM light");
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM light");
 	        
 	        while(rs.next()){
-	            String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
-	            model.addRow(newRow);
-	        }          
+	        	if(rs.getInt("l_isDeleted")==0) {
+	        		String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
+	                model.addRow(newRow);
+	                count++;
+	        	}   
+	        }
+	        sumLabel.setText("totally " + count + " records");
 		} catch(Exception e) {
 			System.out.println("Connection fails: " + e.getMessage());
 		}
+		panel.add(sumLabel);
 		
-		searchAllButton = new JButton("Show All Records");
-		searchAllButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getContentPane().setVisible(false);
-				new D_Light();
-			}
-		});
-		panel.add(searchAllButton);
+//		showAllButton = new JButton("Show All Records");
+//		showAllButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				count = 0;
+//				model.setRowCount(0);
+//
+//				try {
+//					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
+//					Statement stmt = conn.createStatement();
+//					ResultSet rs = stmt.executeQuery("SELECT * FROM light");
+//
+//			        while(rs.next()){
+//			        	if(rs.getInt("l_isDeleted")==0) {
+//			        		String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
+//			                model.addRow(newRow);
+//			                count++;
+//			        	}
+//			        }
+//			        sumLabel.setText("totally " + count + " records");
+//				} catch(Exception e1) {
+//					System.out.println("Connection fails: " + e1.getMessage());
+//				}
+//			}
+//		});
+//		panel.add(showAllButton);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table_1);	
@@ -113,9 +157,7 @@ public class D_Light extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == deleteButton) {
-			
-		}
+		// TODO Auto-generated method stub
 		
 	}
 

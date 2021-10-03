@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 
-public class D_TempHumi extends JFrame implements ActionListener{
+public class D_Mdoor extends JFrame implements ActionListener{
 	private int count = 0;
 	private JLabel sumLabel = new JLabel();
 	
@@ -26,20 +26,21 @@ public class D_TempHumi extends JFrame implements ActionListener{
 	private JTable table_1;
 	private JScrollPane scrollPane; 
 	
-	private Object[] columnNames = new Object[]{"deviceId", "time", "temperature", "humidity"};
+	private Object[] columnNames = new Object[]{"deviceId", "time", "state"};
 	private Object[][] rowData = new Object[0][];
 	private DefaultTableModel model;
-	
-	public D_TempHumi() {
-		D_TempHumi.this.setVisible(true);
+
+
+	public D_Mdoor(String manuId) {
+		D_Mdoor.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 730, 515);
-		this.setTitle("Admin-DataManagement-TempHumi");
+		setBounds(100, 100, 730, 539);
+		this.setTitle("Manu-DoorManagement-Door");
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
 		comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"deviceID", "time", "temperature", "humidity"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"deviceID", "time", "state"}));
 		panel.add(comboBox);
 		
 		searchButton = new JButton("Search");
@@ -47,21 +48,17 @@ public class D_TempHumi extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int index = comboBox.getSelectedIndex();
 				if(index == 0) {
-					D_TempHumi.this.setVisible(false);
-					new E_IDTHSearch(null,0);
+					D_Mdoor.this.setVisible(false);
+					new E_IDDSearch(manuId,1);
 					
 				}
 				else if(index == 1) {
-					D_TempHumi.this.setVisible(false);
-					new E_TimeTHSearch(null,0);
-				}
-				else if(index == 2){
-					D_TempHumi.this.setVisible(false);
-					new E_TempTHSearch(null,0);
+					D_Mdoor.this.setVisible(false);
+					new E_TimeDSearch(manuId,1);
 				}
 				else {
-					D_TempHumi.this.setVisible(false);
-					new E_HumiTHSearch(null,0);
+					D_Mdoor.this.setVisible(false);
+					new E_StateDSearch(manuId,1);
 				}
 			}
 		});
@@ -76,7 +73,7 @@ public class D_TempHumi extends JFrame implements ActionListener{
 							if(table_1.getSelectedRow()==-1) {
 								JOptionPane.showMessageDialog(getContentPane(), "Please click a data in table to choose the record you want to delete. ", "warning", JOptionPane.WARNING_MESSAGE);
 							} else {
-								new Q_DeleteTheTHdata(table_1, model);
+								new Q_DeleteTheDoordata(table_1, model);
 							}
 						} catch (SQLException e1) {
 					         e1.printStackTrace();
@@ -90,8 +87,8 @@ public class D_TempHumi extends JFrame implements ActionListener{
 		returnButton = new JButton("RETURN");
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				D_TempHumi.this.setVisible(false);
-				new C_DataManage();
+				D_Mdoor.this.setVisible(false);
+				new C_MData(manuId);
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -110,24 +107,26 @@ public class D_TempHumi extends JFrame implements ActionListener{
 		model = new DefaultTableModel(rowData, columnNames);
 		table_1 = new JTable(model);
 		
-		try {                                                                              
+		try {    		
+			count = 0;
+			
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi");
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");
 	        
 	        while(rs.next()){
-	        	if(rs.getInt("th_isDeleted")==0) {
-	        		String[] newRow = {rs.getString("th_deviceId"), rs.getString("th_time"), rs.getString("th_temperature"), rs.getString("th_humidity")};
-	                model.addRow(newRow);
+	        	if(rs.getInt("do_isDeleted")==0) {
+	        		String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
+	        		model.addRow(newRow);
 	        		count++;
-	        	} 
-	        } 
+	        	}
+	        }   
 	        sumLabel.setText("totally " + count + " records");
-		} catch(Exception e) {
-			System.out.println("Connection fails: " + e.getMessage());
+		} catch(Exception e1) {
+			System.out.println("Connection fails: " + e1.getMessage());
 		}
 		
-        panel.add(sumLabel);
+		panel.add(sumLabel);
 		
 //		showAllButton = new JButton("Show All Records");
 //		showAllButton.addActionListener(new ActionListener() {
@@ -138,15 +137,15 @@ public class D_TempHumi extends JFrame implements ActionListener{
 //				try {
 //					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 //					Statement stmt = conn.createStatement();
-//					 ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi");
+//					ResultSet rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");
 //
-//			         while(rs.next()){
-//			        	if(rs.getInt("th_isDeleted")==0) {
-//			        		String[] newRow = {rs.getString("th_deviceId"), rs.getString("th_time"), rs.getString("th_temperature"), rs.getString("th_humidity")};
-//			                model.addRow(newRow);
+//			        while(rs.next()){
+//			        	if(rs.getInt("do_isDeleted")==0) {
+//			        		String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
+//			        		model.addRow(newRow);
 //			        		count++;
 //			        	}
-//			         }
+//			        }
 //			        sumLabel.setText("totally " + count + " records");
 //				} catch(Exception e1) {
 //					System.out.println("Connection fails: " + e1.getMessage());
@@ -160,11 +159,10 @@ public class D_TempHumi extends JFrame implements ActionListener{
 		getContentPane().add(scrollPane);
 		
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated catch block
-
+		// TODO Auto-generated method stub
+		
 	}
-	
+
 }

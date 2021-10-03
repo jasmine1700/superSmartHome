@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Q_DeleteTheLightdata {
-	public static void delete(JTable table,DefaultTableModel model) throws SQLException {
+	public Q_DeleteTheLightdata(JTable table,DefaultTableModel model) throws SQLException {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);

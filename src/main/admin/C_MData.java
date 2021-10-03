@@ -3,20 +3,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 
-public class C_DataManage extends JFrame implements ActionListener{
+public class C_MData extends JFrame implements ActionListener{
 	
 
-	public C_DataManage() {
-		C_DataManage.this.setVisible(true);
+	public C_MData(String manuId) {
+		C_MData.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 510, 470);
-		this.setTitle("Admin-dataManagement");
+		this.setTitle("Manu-dataView");
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel textLabel = new JLabel("Hello,Administrator!");
+		JLabel textLabel = new JLabel("Hello,Manufacture!");
 		textLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		textLabel.setFont(new Font("Georgia", Font.BOLD, 25));
 		getContentPane().add(textLabel);
@@ -28,8 +29,8 @@ public class C_DataManage extends JFrame implements ActionListener{
 		JButton tempHumiButton = new JButton("TempHumi");
 		tempHumiButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				C_DataManage.this.setVisible(false);
-				new D_TempHumi();
+				C_MData.this.setVisible(false);
+				new D_Mtemphumi(manuId);
 			}
 		});
 		tempHumiButton.setBounds(120, 20, 200, 30);
@@ -38,8 +39,8 @@ public class C_DataManage extends JFrame implements ActionListener{
 		JButton lightButton = new JButton("Light");
 		lightButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				C_DataManage.this.setVisible(false);
-				new D_ManuLight();
+				C_MData.this.setVisible(false);
+				new D_Mlight(manuId);
 			}
 		});
 		lightButton.setBounds(120, 60, 200, 30);
@@ -48,8 +49,8 @@ public class C_DataManage extends JFrame implements ActionListener{
 		JButton doorButton = new JButton("Door");
 		doorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				C_DataManage.this.setVisible(false);
-				new D_Door();
+				C_MData.this.setVisible(false);
+				new D_Mdoor(manuId);
 			}
 		});
 		doorButton.setBounds(120, 100, 200, 30);
@@ -72,19 +73,23 @@ public class C_DataManage extends JFrame implements ActionListener{
 		JButton returnButton = new JButton("RETURN");
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				C_DataManage.this.setVisible(false);
-				new B_Admin();
+				C_MData.this.setVisible(false);
+				new B_Manu(manuId);
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
 		returnButton.setBounds(230, 80, 95, 25);
 		panel.add(returnButton);
 		
+		
+		
+		
+		
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

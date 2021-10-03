@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -48,16 +49,16 @@ public class D_Door extends JFrame implements ActionListener{
 				int index = comboBox.getSelectedIndex();
 				if(index == 0) {
 					D_Door.this.setVisible(false);
-					new E_IDDSearch();
+					new E_IDDSearch(null,0);
 					
 				}
 				else if(index == 1) {
 					D_Door.this.setVisible(false);
-					new E_TimeDSearch();
+					new E_TimeDSearch(null,0);
 				}
 				else {
 					D_Door.this.setVisible(false);
-					new E_StateDSearch();
+					new E_StateDSearch(null,0);
 				}
 			}
 		});
@@ -125,33 +126,33 @@ public class D_Door extends JFrame implements ActionListener{
 			System.out.println("Connection fails: " + e1.getMessage());
 		}
 		
-		//panel.add(sumLabel);
+		panel.add(sumLabel);
 		
-		showAllButton = new JButton("Show All Records");
-		showAllButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				count = 0;
-				model.setRowCount(0);
-				
-				try {    					
-					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
-					Statement stmt = conn.createStatement();
-			        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
-			        
-			        while(rs.next()){
-			        	if(rs.getInt("do_isDeleted")==0) {
-			        		String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
-			        		model.addRow(newRow);
-			        		count++;
-			        	}
-			        }   
-			        sumLabel.setText("totally " + count + " records");
-				} catch(Exception e1) {
-					System.out.println("Connection fails: " + e1.getMessage());
-				}
-			}
-		});
-		panel.add(showAllButton);
+//		showAllButton = new JButton("Show All Records");
+//		showAllButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				count = 0;
+//				model.setRowCount(0);
+//
+//				try {
+//					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
+//					Statement stmt = conn.createStatement();
+//			        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
+//
+//			        while(rs.next()){
+//			        	if(rs.getInt("do_isDeleted")==0) {
+//			        		String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
+//			        		model.addRow(newRow);
+//			        		count++;
+//			        	}
+//			        }
+//			        sumLabel.setText("totally " + count + " records");
+//				} catch(Exception e1) {
+//					System.out.println("Connection fails: " + e1.getMessage());
+//				}
+//			}
+//		});
+//		panel.add(showAllButton);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table_1);	

@@ -32,11 +32,16 @@ public class E_TimeDSearch extends JFrame implements ActionListener{
 	private Object[][] rowData = new Object[0][];
 	private DefaultTableModel model;
 
-	public E_TimeDSearch() {
+	public E_TimeDSearch(String manuId,int flag) {
 		E_TimeDSearch.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 550);
-		this.setTitle("Admin-DataManagement-Door-TimeSearch");
+		if(flag == 0) {
+			this.setTitle("Admin-DataManagement-Door-TimeSearch");
+		}
+		else {
+			this.setTitle("Manu-ViewData-Door-TimeSearch");
+		}
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
@@ -58,15 +63,21 @@ public class E_TimeDSearch extends JFrame implements ActionListener{
 		panel.add(searchButton);
 		searchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().equals("")) {
-					JOptionPane.showMessageDialog(getContentPane(), "Please fill in some information", "warning", JOptionPane.WARNING_MESSAGE);
+				if(textField.getText().equals("") || textField_1.getText().equals("")) {
+					JOptionPane.showMessageDialog(getContentPane(), "Please complete the information", "warning", JOptionPane.WARNING_MESSAGE);
 				} else {
 					model.setRowCount(0);
 					count = 0;
 					try {
 						Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 						Statement stmt = conn.createStatement();
-				        ResultSet rs = stmt.executeQuery("SELECT * FROM door WHERE do_time BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\"");
+				        ResultSet rs = null;
+				        if(flag == 0) {
+				        	rs = stmt.executeQuery("SELECT * FROM door WHERE do_time BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\"");
+				        }
+				        else {
+				        	rs = stmt.executeQuery("SELECT * FROM door,device WHERE do_time BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\" AND d_manuId = \"" + manuId + "\" AND d_deviceId = do_deviceId;");
+				        }
 				        
 				        while(rs.next()){
 				            if(rs.getInt("do_isDeleted")==0) {
@@ -89,7 +100,12 @@ public class E_TimeDSearch extends JFrame implements ActionListener{
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				E_TimeDSearch.this.setVisible(false);
-				new D_Door();
+				if(flag == 0){
+					new D_Door();
+				}
+				else {
+					new D_Mdoor(manuId);
+				}
 			}
 		});
 		
@@ -145,7 +161,13 @@ public class E_TimeDSearch extends JFrame implements ActionListener{
 			
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
+			ResultSet rs = null;
+	        if(flag == 0) {
+	        	rs = stmt.executeQuery("SELECT * FROM door ");
+	        }
+	        else {
+	        	rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");						       
+			}
 	        
 	        while(rs.next()){
 	        	if(rs.getInt("do_isDeleted")==0) {
@@ -166,19 +188,25 @@ public class E_TimeDSearch extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				count = 0;
 				model.setRowCount(0);
-				
-				try {    					
+
+				try {
 					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 					Statement stmt = conn.createStatement();
-			        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
-			        
+					ResultSet rs = null;
+			        if(flag == 0) {
+			        	rs = stmt.executeQuery("SELECT * FROM door ");
+			        }
+			        else {
+			        	rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");
+					}
+
 			        while(rs.next()){
 			        	if(rs.getInt("do_isDeleted")==0) {
 			        		String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
 			        		model.addRow(newRow);
 			        		count++;
 			        	}
-			        }   
+			        }
 			        sumLabel.setText("totally " + count + " records");
 				} catch(Exception e1) {
 					System.out.println("Connection fails: " + e1.getMessage());

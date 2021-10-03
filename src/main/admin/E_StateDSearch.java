@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -31,11 +32,16 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 	private DefaultTableModel model;
 
 
-	public E_StateDSearch() {
+	public E_StateDSearch(String manuId,int flag) {
 		E_StateDSearch.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 539);
-		this.setTitle("Admin-DataManagement-Door-StateIDSearch");
+		if(flag == 0) {
+			this.setTitle("Admin-DataManagement-Door-StateIDSearch");
+		}
+		else {
+			this.setTitle("Manu-ViewData-Door-StateIDSearch");
+		}
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
@@ -46,6 +52,7 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"0 (open)", "1 (close)"}));
 		panel.add(comboBox);
 		
+		
 		searchButton = new JButton("Search");
 		panel.add(searchButton);
 		searchButton.addActionListener(new ActionListener() {
@@ -55,8 +62,15 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 					try {                                                                              
 						Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 						Statement stmt = conn.createStatement();
-				        ResultSet rs = stmt.executeQuery("SELECT * FROM door WHERE do_state = " + (int)comboBox.getSelectedIndex());
 						
+				        ResultSet rs = null;
+				        if(flag ==0) {
+				        	rs = stmt.executeQuery("SELECT * FROM door WHERE do_state = " + (int)comboBox.getSelectedIndex());				        
+				        }
+				        else {
+				        	rs = stmt.executeQuery("SELECT * FROM door,device WHERE do_state = " + (int)comboBox.getSelectedIndex() + " AND d_manuId = \"" + manuId +  "\" AND do_deviceId = d_deviceId; ");
+				        }
+				        
 						while(rs.next()){
 				            if(rs.getInt("do_isDeleted")==0) {
 				            	String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
@@ -75,7 +89,12 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				E_StateDSearch.this.setVisible(false);
-				new D_Door();
+				if(flag == 0){
+					new D_Door();
+				}
+				else {
+					new D_Mdoor(manuId);
+				}
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -91,14 +110,22 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 		panel.add(exitButton);
 		getContentPane().add(panel);
 		
-		model = new DefaultTableModel(rowData, columnNames);
+//		model = new DefaultTableModel(rowData, columnNames);
+		model = new DefaultTableModel();
+		model.setColumnIdentifiers(columnNames);
 		table_1 = new JTable(model);
 		
 		try {
 			count = 0;
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
+			ResultSet rs = null;
+	        if(flag ==0) {
+	        	rs = stmt.executeQuery("SELECT * FROM door ");				        
+	        }
+	        else {
+	        	rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");						       
+			}
 	        
 	        while(rs.next()){
 	            if(rs.getInt("do_isDeleted")==0) {
@@ -118,13 +145,19 @@ public class E_StateDSearch extends JFrame implements ActionListener{
 		showAllButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.setRowCount(0);
-				
+
 				try {
 					count = 0;
 					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 					Statement stmt = conn.createStatement();
-			        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
-			        
+					ResultSet rs = null;
+			        if(flag ==0) {
+			        	rs = stmt.executeQuery("SELECT * FROM door ");
+			        }
+			        else {
+			        	rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");
+					}
+
 			        while(rs.next()){
 			            if(rs.getInt("do_isDeleted")==0) {
 			            	String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};

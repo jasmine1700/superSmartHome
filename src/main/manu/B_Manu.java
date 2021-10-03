@@ -41,7 +41,7 @@ public class B_Manu extends JFrame implements ActionListener{
 		dataButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				B_Manu.this.setVisible(false);
-				new C_MDetailSearch(manuId);
+				new C_MData(manuId);
 			}
 		});
 		dataButton.setFont(new Font("Georgia", Font.PLAIN, 20));

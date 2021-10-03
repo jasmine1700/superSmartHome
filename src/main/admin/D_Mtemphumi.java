@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 
-public class D_TempHumi extends JFrame implements ActionListener{
+public class D_Mtemphumi extends JFrame implements ActionListener{
 	private int count = 0;
 	private JLabel sumLabel = new JLabel();
 	
@@ -30,11 +30,11 @@ public class D_TempHumi extends JFrame implements ActionListener{
 	private Object[][] rowData = new Object[0][];
 	private DefaultTableModel model;
 	
-	public D_TempHumi() {
-		D_TempHumi.this.setVisible(true);
+	public D_Mtemphumi(String manuId) {
+		D_Mtemphumi.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 515);
-		this.setTitle("Admin-DataManagement-TempHumi");
+		this.setTitle("Manu-ViewData-TempHumi");
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
@@ -47,21 +47,21 @@ public class D_TempHumi extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int index = comboBox.getSelectedIndex();
 				if(index == 0) {
-					D_TempHumi.this.setVisible(false);
-					new E_IDTHSearch(null,0);
+					D_Mtemphumi.this.setVisible(false);
+					new E_IDTHSearch(manuId,1);
 					
 				}
 				else if(index == 1) {
-					D_TempHumi.this.setVisible(false);
-					new E_TimeTHSearch(null,0);
+					D_Mtemphumi.this.setVisible(false);
+					new E_TimeTHSearch(manuId,1);
 				}
 				else if(index == 2){
-					D_TempHumi.this.setVisible(false);
-					new E_TempTHSearch(null,0);
+					D_Mtemphumi.this.setVisible(false);
+					new E_TempTHSearch(manuId,1);
 				}
 				else {
-					D_TempHumi.this.setVisible(false);
-					new E_HumiTHSearch(null,0);
+					D_Mtemphumi.this.setVisible(false);
+					new E_HumiTHSearch(manuId,1);
 				}
 			}
 		});
@@ -90,8 +90,8 @@ public class D_TempHumi extends JFrame implements ActionListener{
 		returnButton = new JButton("RETURN");
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				D_TempHumi.this.setVisible(false);
-				new C_DataManage();
+				D_Mtemphumi.this.setVisible(false);
+				new C_MData(manuId);
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -113,8 +113,8 @@ public class D_TempHumi extends JFrame implements ActionListener{
 		try {                                                                              
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi");
-	        
+			ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi,device where d_manuId = \"" + manuId + "\" and d_deviceId = th_deviceId;");
+		     
 	        while(rs.next()){
 	        	if(rs.getInt("th_isDeleted")==0) {
 	        		String[] newRow = {rs.getString("th_deviceId"), rs.getString("th_time"), rs.getString("th_temperature"), rs.getString("th_humidity")};
@@ -138,7 +138,7 @@ public class D_TempHumi extends JFrame implements ActionListener{
 //				try {
 //					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 //					Statement stmt = conn.createStatement();
-//					 ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi");
+//					ResultSet rs = stmt.executeQuery("SELECT * FROM temphumi,device where d_manuId = \"" + manuId + "\" and d_deviceId = th_deviceId;");
 //
 //			         while(rs.next()){
 //			        	if(rs.getInt("th_isDeleted")==0) {

@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -30,11 +31,16 @@ public class E_IDDSearch extends JFrame implements ActionListener{
 	private DefaultTableModel model;
 
 
-	public E_IDDSearch() {
+	public E_IDDSearch(String manuId,int flag) {
 		E_IDDSearch.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 539);
-		this.setTitle("Admin-DataManagement-Door-DeviceIDSearch");
+		if(flag == 0) {
+			this.setTitle("Admin-DataManagement-Door-DeviceIDSearch");
+		}
+		else {
+			this.setTitle("Manu-ViewData-Door-DeviceIDSearch");
+		}
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
@@ -49,15 +55,21 @@ public class E_IDDSearch extends JFrame implements ActionListener{
 		panel.add(searchButton);
 		searchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText() == "") {
-					JOptionPane.showMessageDialog(getContentPane(), "Please fill in some information", "warning", JOptionPane.WARNING_MESSAGE);
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(getContentPane(), "Please complete the information", "warning", JOptionPane.WARNING_MESSAGE);
 				} else {
 					model.setRowCount(0);
 					count = 0;
 					try {                                                                              
 						Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 						Statement stmt = conn.createStatement();
-						ResultSet rs = stmt.executeQuery("SELECT * FROM door");
+						ResultSet rs = null;
+						if(flag == 0) {
+							rs = stmt.executeQuery("SELECT * FROM door");
+						}
+						else {
+							rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");						       
+						}
 						
 						while(rs.next()){
 				            if(rs.getString("do_deviceId").equals(textField.getText()) && rs.getInt("do_isDeleted")==0) {
@@ -78,7 +90,13 @@ public class E_IDDSearch extends JFrame implements ActionListener{
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				E_IDDSearch.this.setVisible(false);
-				new D_Door();
+				if(flag == 0){
+					new D_Door();
+				}
+				else {
+					new D_Mdoor(manuId);
+				}
+				
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -101,8 +119,14 @@ public class E_IDDSearch extends JFrame implements ActionListener{
 			count = 0;
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
-	        
+			ResultSet rs = null;
+			if(flag == 0) {
+				rs = stmt.executeQuery("SELECT * FROM door");
+			}
+			else {
+				rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");						       
+			}
+			
 	        while(rs.next()){
 	            if(rs.getInt("do_isDeleted")==0) {
 	            	String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};
@@ -121,13 +145,19 @@ public class E_IDDSearch extends JFrame implements ActionListener{
 		showAllButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.setRowCount(0);
-				
+
 				try {
 					count = 0;
 					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 					Statement stmt = conn.createStatement();
-			        ResultSet rs = stmt.executeQuery("SELECT * FROM door");
-			        
+					ResultSet rs = null;
+					if(flag == 0) {
+						rs = stmt.executeQuery("SELECT * FROM door");
+					}
+					else {
+						rs = stmt.executeQuery("SELECT * FROM door,device where d_manuId = \"" + manuId + " \"and do_deviceId = d_deviceId; ");
+					}
+
 			        while(rs.next()){
 			            if(rs.getInt("do_isDeleted")==0) {
 			            	String[] newRow = {rs.getString("do_deviceId"), rs.getString("do_time"), rs.getString("do_state")};

@@ -36,11 +36,16 @@ public class E_LightLSearch extends JFrame implements ActionListener{
 	private Object[][] rowData = new Object[0][];
 	private DefaultTableModel model;
 
-	public E_LightLSearch() {
+	public E_LightLSearch(String manuId,int flag) {
 		E_LightLSearch.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 550);
-		this.setTitle("Admin-DataManagement-Light-TimeSearch");
+		if(flag == 0) {
+			this.setTitle("Admin-DataManagement-Light-LightSearch");
+		}
+		else {
+			this.setTitle("Manu-ViewData-Light-LightSearch");
+		}
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel = new JPanel();
 		
@@ -62,16 +67,21 @@ public class E_LightLSearch extends JFrame implements ActionListener{
 		panel.add(searchButton);
 		searchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().equals("")) {
-					JOptionPane.showMessageDialog(getContentPane(), "Please fill in some information", "warning", JOptionPane.WARNING_MESSAGE);
+				if(textField.getText().equals("") || textField_1.getText().equals("")) {
+					JOptionPane.showMessageDialog(getContentPane(), "Please complete the information", "warning", JOptionPane.WARNING_MESSAGE);
 				} else {
 					model.setRowCount(0);
 					count = 0;
 					try {
 						Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 						Statement stmt = conn.createStatement();
-				        ResultSet rs = stmt.executeQuery("SELECT * FROM light WHERE l_light BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\"");
-				        
+				        ResultSet rs = null;
+				        if(flag ==0) {
+				        	rs = stmt.executeQuery("SELECT * FROM light WHERE l_light BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\"");				        
+				        }
+				        else {
+				        	rs = stmt.executeQuery("SELECT * FROM light,device WHERE l_light BETWEEN \"" + textField.getText() + "\" AND \"" + textField_1.getText()+ "\" AND d_manuID = \"" + manuId + "\" AND l_deviceId = d_deviceId");				        
+				        }
 				        while(rs.next()){
 				            if(rs.getInt("l_isDeleted")==0) {
 				        		String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
@@ -93,7 +103,12 @@ public class E_LightLSearch extends JFrame implements ActionListener{
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				E_LightLSearch.this.setVisible(false);
-				new D_Light();
+				if(flag == 0) {
+					new D_Light();
+				}
+				else {
+					new D_Mlight(manuId);
+				}
 			}
 		});
 		
@@ -150,7 +165,13 @@ public class E_LightLSearch extends JFrame implements ActionListener{
 			
 			Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
 			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM light");
+			ResultSet rs = null;
+		    if(flag ==0) {
+		       	rs = stmt.executeQuery("SELECT * FROM light ");				        
+		    }
+	        else {
+		    	rs = stmt.executeQuery("SELECT * FROM light,device where d_manuId = \"" + manuId + "\" and l_deviceId = d_deviceId;");					        
+	   	    }
 	        
 	        while(rs.next()){
 	        	if(rs.getInt("l_isDeleted")==0) {
@@ -166,31 +187,37 @@ public class E_LightLSearch extends JFrame implements ActionListener{
 		
 		panel.add(sumLabel);
 		
-		showAllButton = new JButton("Show All Records");
-		showAllButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				count = 0;
-				model.setRowCount(0);
-				
-				try {    					
-					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
-					Statement stmt = conn.createStatement();
-			        ResultSet rs = stmt.executeQuery("SELECT * FROM light");
-			        
-			        while(rs.next()){
-			        	if(rs.getInt("l_isDeleted")==0) {
-			        		String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
-			        		model.addRow(newRow);
-			        		count++;
-			        	}
-			        }   
-			        sumLabel.setText("totally " + count + " records");
-				} catch(Exception e1) {
-					System.out.println("Connection fails: " + e1.getMessage());
-				}
-			}
-		});
-		panel.add(showAllButton);
+//		showAllButton = new JButton("Show All Records");
+//		showAllButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				count = 0;
+//				model.setRowCount(0);
+//				
+//				try {    					
+//					Connection conn = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD);
+//					Statement stmt = conn.createStatement();
+//					ResultSet rs = null;
+//				    if(flag ==0) {
+//				       	rs = stmt.executeQuery("SELECT * FROM light ");				        
+//				    }
+//			        else {
+//				    	rs = stmt.executeQuery("SELECT * FROM light,device where d_manuId = \"" + manuId + "\" and l_deviceId = d_deviceId;");					        
+//			   	    }
+//			        
+//			        while(rs.next()){
+//			        	if(rs.getInt("l_isDeleted")==0) {
+//			        		String[] newRow = {rs.getString("l_deviceId"), rs.getString("l_time"), rs.getString("l_light")};
+//			        		model.addRow(newRow);
+//			        		count++;
+//			        	}
+//			        }   
+//			        sumLabel.setText("totally " + count + " records");
+//				} catch(Exception e1) {
+//					System.out.println("Connection fails: " + e1.getMessage());
+//				}
+//			}
+//		});
+//		panel.add(showAllButton);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table_1);	

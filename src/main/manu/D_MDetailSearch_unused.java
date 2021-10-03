@@ -7,21 +7,22 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 
-public class D_Mtemphumi extends JFrame implements ActionListener{
+public class D_MDetailSearch_unused extends JFrame implements ActionListener{
 	private JTable table;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField textField_6;
 	private JTextField textField_7;
-	private JTextField textField_9;
 
-	public D_Mtemphumi(String manuId) {
-		D_Mtemphumi.this.setVisible(true);
+	public D_MDetailSearch_unused(String manuId) {
+		D_MDetailSearch_unused.this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 807, 622);
-		this.setTitle("Manu-dataView-temphumi");
+		setBounds(100, 100, 955, 622);
+		this.setTitle("Manu-dataView");
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		JPanel panel = new JPanel();
 		
@@ -45,41 +46,52 @@ public class D_Mtemphumi extends JFrame implements ActionListener{
 		textField_2 = new JTextField();
 		panel.add(textField_2);
 		textField_2.setColumns(10);
-		getContentPane().add(panel);
 		
-		JPanel panel_4 = new JPanel();
-		getContentPane().add(panel_4);
-		
-		JLabel lblMintemprature = new JLabel("minTemprature:");
-		panel_4.add(lblMintemprature);
-		
-		textField_7 = new JTextField();
-		panel_4.add(textField_7);
-		textField_7.setColumns(10);
-		
-		JLabel lblMaxtemprature = new JLabel("maxTemprature:");
-		panel_4.add(lblMaxtemprature);
-		
-		textField_9 = new JTextField();
-		panel_4.add(textField_9);
-		textField_9.setColumns(10);
-		
-		JPanel panel_5 = new JPanel();
-		getContentPane().add(panel_5);
-		
-		JLabel minhumiLabel = new JLabel("minHuminity:");
-		panel_5.add(minhumiLabel);
+		JLabel mintempLabel = new JLabel("minTemperature:");
+		panel.add(mintempLabel);
 		
 		textField_3 = new JTextField();
-		panel_5.add(textField_3);
+		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel maxhumiLabel = new JLabel("maxHuminity:");
-		panel_5.add(maxhumiLabel);
+		JLabel maxtempLabel = new JLabel("maxTemperature:");
+		panel.add(maxtempLabel);
 		
 		textField_5 = new JTextField();
-		panel_5.add(textField_5);
+		panel.add(textField_5);
 		textField_5.setColumns(10);
+		getContentPane().add(panel);
+		
+		JPanel panel_2 = new JPanel();
+		getContentPane().add(panel_2);
+		
+		JLabel minhumiLabel = new JLabel("minHuminity:");
+		panel_2.add(minhumiLabel);
+		
+		textField_4 = new JTextField();
+		panel_2.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JLabel maxhumiLabel = new JLabel("maxHuminity:");
+		panel_2.add(maxhumiLabel);
+		
+		textField_6 = new JTextField();
+		panel_2.add(textField_6);
+		textField_6.setColumns(10);
+		
+		JLabel minlightLabel = new JLabel("minLight:");
+		panel_2.add(minlightLabel);
+		
+		textField_7 = new JTextField();
+		panel_2.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel stateLabel = new JLabel("State:");
+		panel_2.add(stateLabel);
+		
+		JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"", "0", "1"}));
+		panel_2.add(comboBox);
 		
 		JPanel panel_3 = new JPanel();
 		getContentPane().add(panel_3);
@@ -90,12 +102,6 @@ public class D_Mtemphumi extends JFrame implements ActionListener{
 		JButton searchAllButton = new JButton("Search All");
 		panel_3.add(searchAllButton);
 		
-		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2);
-		
-		JLabel sumLabel = new JLabel("totally:");
-		panel_2.add(sumLabel);
-		
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1);
 		
@@ -103,8 +109,8 @@ public class D_Mtemphumi extends JFrame implements ActionListener{
 		panel_1.add(returnButton);
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				D_Mtemphumi.this.setVisible(false);
-				new C_MDetailSearch(manuId);
+				D_MDetailSearch_unused.this.setVisible(false);
+				new C_MData(manuId);
 			}
 		});
 		returnButton.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -149,7 +155,7 @@ public class D_Mtemphumi extends JFrame implements ActionListener{
 				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"deviceID", "time", "temprature", "huminity" 
+				"deviceID", "time", "temperature", "huminity", "light", "state"
 			}
 		));
 		JScrollPane scrollPane = new JScrollPane();
