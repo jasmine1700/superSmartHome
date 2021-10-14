@@ -1,0 +1,6 @@
+This the whole code for create a totally new system.
+## for Database
+Run the "finalDB.sql" file in file Database to set the whole databse.
+## for Java
+This system runs in IntelliJ IDEA.
+Before running, please modify your information about MySQL in "JavaCode/src/Main.java".
