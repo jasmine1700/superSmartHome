@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="24842963-57af-42eb-888c-47bf6a287b74" name="Changes" comment="2021.10.14验收前的终版1.0">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/admin.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/device.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/device_class.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/door.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/family.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/final.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/finalDB.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/light.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/manu.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/temphumi.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/user.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/userfamily.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/A_Login$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/A_Login.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Manu$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Manu$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Manu$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Manu$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/B_Manu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DataManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceClassManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_DeviceManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$4$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_FamilyManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDetailSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_MDeviceManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$4$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/C_UserManage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Door.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Light.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_MDetailSearch_unused$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_MDetailSearch_unused$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_MDetailSearch_unused.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_ManuLight.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mdoor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mlight.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_Mtemphumi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/D_TempHumi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Delete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_HumiTHSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDDSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDDSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDDSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDDSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDDSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDLSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDLSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDLSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDLSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDLSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDTHSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDTHSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDTHSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDTHSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_IDTHSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_LightLSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_LightLSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_LightLSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_LightLSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_LightLSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_StateDSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_StateDSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_StateDSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_StateDSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_StateDSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TempTHSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeDSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeLSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/E_TimeTHSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Main$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/O_BarChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/O_LineChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/O_PieChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddAClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddADevice$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddADevice$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddADevice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddAFamily.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/P_AddAUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/ParseMD5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheDevice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheDeviceClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheDoordata.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheFamily.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheLightdata.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheTHdata.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/Q_DeleteTheUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/RandomUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/ReviseTheFamilyDoorPsw.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/ReviseTheUserPsw.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/SearchAndWriteToJTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/TableDemo$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/TableDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/getDataFromExcel/getFromExcel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaCode/bin/jdbcDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superSmartHome.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xljEhZMBM64NdesTfkCaK0fvzc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/webservice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/admin" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\学习\大二下\大二小学期\作业内容\java相关\superSmartHome\src\main\admin" />
+      <recent name="D:\学习\大二下\大二小学期\作业内容\java相关\superSmartHome\src\main\manu" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\学习\大二下\大二小学期\作业内容\java相关\superSmartHome\JavaCode" />
+      <recent name="D:\学习\大二下\大二小学期\作业内容\java相关\superSmartHome\src\main\admin" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24842963-57af-42eb-888c-47bf6a287b74" name="Changes" comment="" />
+      <created>1630936467601</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630936467601</updated>
+      <workItem from="1630936468990" duration="444000" />
+      <workItem from="1630997983037" duration="1536000" />
+      <workItem from="1631003098026" duration="617000" />
+      <workItem from="1631087136378" duration="5150000" />
+      <workItem from="1631095210731" duration="765000" />
+      <workItem from="1631111542220" duration="1838000" />
+      <workItem from="1631172635705" duration="884000" />
+      <workItem from="1631180555611" duration="768000" />
+      <workItem from="1631187897949" duration="19000" />
+      <workItem from="1631191943821" duration="143000" />
+      <workItem from="1631513622386" duration="8000" />
+      <workItem from="1632624130610" duration="1058000" />
+      <workItem from="1632628145659" duration="1099000" />
+      <workItem from="1633228872544" duration="2899000" />
+      <workItem from="1633234542982" duration="693000" />
+      <workItem from="1633250748816" duration="419000" />
+      <workItem from="1633962513594" duration="11000" />
+      <workItem from="1634005091738" duration="1066000" />
+      <workItem from="1634192534251" duration="15000" />
+      <workItem from="1634202134669" duration="1730000" />
+      <workItem from="1634224641675" duration="22000" />
+      <workItem from="1634284117104" duration="1613000" />
+      <workItem from="1634292236503" duration="8000" />
+    </task>
+    <task id="LOCAL-00001" summary="管理员后端系统">
+      <created>1631093701890</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631093701890</updated>
+    </task>
+    <task id="LOCAL-00002" summary="管理员后端系统">
+      <created>1631112164366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631112164366</updated>
+    </task>
+    <task id="LOCAL-00003" summary="管理员后端系统&#10;增加了设备厂商对于数据的查看操作">
+      <created>1633250834102</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633250834102</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2021.10.14验收前的终版1.0">
+      <created>1634203694185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634203694185</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="管理员后端系统" />
+    <MESSAGE value="管理员后端系统&#10;增加了设备厂商对于数据的查看操作" />
+    <MESSAGE value="2021.10.14验收前的终版1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.10.14验收前的终版1.0" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
