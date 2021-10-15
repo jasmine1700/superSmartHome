@@ -125,7 +125,7 @@ public class A_Login extends JFrame {
 					JOptionPane.showMessageDialog(contentPane, "Please fill in all information", "warning", JOptionPane.WARNING_MESSAGE);
 					
 				} else if(!match) {
-					JOptionPane.showMessageDialog(contentPane, "Id and password don't match. ", "����", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(contentPane, "Id and password don't match. ", "warning", JOptionPane.WARNING_MESSAGE);
 				} else {
 					A_Login.this.setVisible(false);
 					if(IndexofIdentify == 0) {

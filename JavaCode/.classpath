@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="D:/学习/大二下/大二小学期/作业内容/java相关/superSmartHome/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="D:/学习/大二下/大二小学期/作业内容/java相关/superSmartHome/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="D:/学习/大二下/大二小学期/作业内容/java相关/superSmartHome/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -6,7 +6,7 @@ public class Main {
 	
 	public static final String URL = "jdbc:mysql://127.0.0.1:3306/mydb";
     public static final String USER = "root";
-    public static final String PASSWORD = "wrjayb8p";
+    public static final String PASSWORD = "***";
 	
 	public static void main(String[] args) {
 		
